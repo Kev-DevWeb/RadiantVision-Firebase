@@ -9,24 +9,21 @@ signupForm.addEventListener('submit', async (e) => {
     const email = signupForm['email3'].value
     const pass = signupForm['password3'].value
 
-   try {
-    const userCredentials = await createUserWithEmailAndPassword(auth, email, pass)
-    console.log(userCredentials)
+    try {
+        const userCredentials = await createUserWithEmailAndPassword(auth, email, pass)
+        console.log(userCredentials)
+        
+        // Cierra el modal de registro
+        const signupModal = document.querySelector('#registers')
+        const modal = bootstrap.Modal.getInstance(signupModal)
+        modal.hide()
     
-    //close signup modal
-    const signupModal = document.querySelector('#registers')
-    const modal = bootstrap.Modal.getInstance(signupModal)
-    modal.hide()
-
-    //open register result
-
-    const resModal = document.querySelector('#res')
-    const modalres = bootstrap.Modal.getInstance(resModal)
-    modalres.show()
-
-   } catch (error) {
-
-    console.log(error)
+        // Abre el modal de registro exitoso
+        const resModal = document.querySelector('#res')
+        const modalres = new bootstrap.Modal(resModal)
+        modalres.show()
     
-   }
+       } catch (error) {
+        console.log(error)
+       }
 })
