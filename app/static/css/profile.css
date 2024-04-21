@@ -3,14 +3,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #000000;
     color: #ffffff; /* Color del texto */
-}
-
-/* Estilos para el encabezado */
-header {
-    background-color: #202225; /* Color de fondo del encabezado */
-    padding: 20px;
+    background-image: url('/static/src/Logo_Wallpapers/valorantLogo/VALORANT_logo4.jpg');
 }
 
 /* Estilos para la barra de navegación */
@@ -37,6 +31,7 @@ nav ul li a:hover {
 /* Estilos para el contenido principal */
 main {
     padding: 20px;
+    margin-top: 0;
 }
 
 /* Estilos para la sección de perfil */
@@ -105,31 +100,280 @@ input[type="submit"]:hover {
 
 /* Estilos para el contenedor principal */
 .main-container {
-    border-radius: 10px; /* Borde redondeado */
+    border-radius: 20px; /* Borde redondeado */
     background-color: #282c34; /* Color de fondo del contenedor */
     padding: 20px; /* Espaciado interno */
 }
 
-.carousel-control-prev,
-.carousel-control-next {
-    font-size: 1rem;
-    width: 20px;
-    height: 20px;
-    top: calc(50% - 10px); /* Alinea verticalmente al centro */
-    background-color: rgba(255, 255, 255, 0.5); /* Fondo semitransparente */
-    border-radius: 50%; /* Botones redondeados */
+/* Estilos para las tarjetas */
+.card {
+    margin-bottom: 20px; /* Espaciado entre tarjetas */
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    background-color: rgba(0, 0, 0, 0.5); /* Icono semitransparente */
-    color: white; /* Color del icono */
-    border-radius: 50%; /* Icono redondeado */
+.card-body {
+    background-color: #202225; /* Color de fondo del cuerpo de la tarjeta */
+    color: #ffffff; /* Color del texto en el cuerpo de la tarjeta */
 }
 
-.container-cursos1{
+.card-title {
+    color: #ff4654; /* Color del título de la tarjeta */
+}
+
+.card-text {
+    color: #ffffff; /* Color del texto del cuerpo de la tarjeta */
+}
+
+.btn-primary {
+    background-color: #ff4654; /* Color de fondo del botón */
+    border-color: #ff4654; /* Color del borde del botón */
+    color: #ffffff; /* Color del texto del botón */
+}
+
+.btn-primary:hover {
+    background-color: #d92634; /* Color de fondo del botón al pasar el ratón */
+    border-color: #d92634; /* Color del borde del botón al pasar el ratón */
+}
+
+.navbar-brand {
+    font-family: "Instrument Sans", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: white ;
+}
+
+.navbar-brand:hover {
+    color: #f5dc1f;
+}
+
+.navbar-nav .nav-link {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 18px; /* Ajusta este valor según lo que necesites */
+}
+
+.navbar-nav .nav-link:hover {
+    box-shadow: 0 0 5px #ca3744; /* Define el sombreado al pasar el mouse */
+    border-radius: 10px;
+    background-color: #ca3744; /* Cambia el color de fondo al pasar el mouse */
+    color: black; /* Cambia el color del texto al pasar el mouse */
+}
+
+.navbar .btn-outline-light {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 18px; /* Ajusta este valor según lo que necesites */
+}
+
+.navbar .btn-outline-light:hover {
+    background-color: #ca3744; /* Cambia el color de fondo del botón al pasar el mouse */
+    border-color: #ca3744; /* Cambia el color del borde del botón al pasar el mouse */
+}
+
+/* Cambiar fondo de header a vino */
+header {
+    /* Tono vino oscuro */
+    margin-top: 20px; /* Ajusta el margen superior según sea necesario */
+}
+
+header .display-4 {
+    font-family: "Instrument Sans", sans-serif;
+    font-weight: 600;
+    /* Puedes ajustar el grosor aquí */
+}
+
+header .lead {
+    font-size: 24px;
+    font-weight: 400;
+    /* Puedes ajustar el grosor aquí */
+}
+
+.container.mt-4 h2 {
+    text-align: center;
+    font-weight: 600;
+    margin-top: 0px;
+    padding-bottom: 40px;
+}
+
+/* Cambiar fondo de la sección de cursos a vino */
+.container.mt-4 {
+    border-color: #000000;
+    /* Tono vino oscuro */
+    color: #ca3744;
+    /* Texto blanco */
+    padding: 20px;
+    margin-top: 20px; /* Ajusta el margen superior según sea necesario */
+    margin-bottom: 20px; /* Ajusta el margen inferior según sea necesario */
     border-radius: 20px;
 }
-#linking {
-    color: black; /* Cambia el color del texto en el input */
+
+/* Cambiar el color del botón de los cursos a vino */
+.btn-primary {
+    background-color: #000000;
+    /* Tono vino oscuro */
+    border-color: #ffffff;
+    /* Borde vino oscuro */
+}
+
+@media (min-width: 768px) {
+    .container.mt-4 {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+}
+
+/* Estilos personalizados para el carrusel */
+#carruselCursos .carousel-inner {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#carruselCursos .carousel-item {
+    width: 100%;
+    /* Ajusta según sea necesario */
+    transition: transform 0.6s ease;
+}
+
+#carruselCursos .col-md-4 {
+    flex: 0 0 auto;
+    margin-right: 2px;
+    /* Ajusta según sea necesario */
+}
+
+#carruselCursos .card {
+    margin: 0 5px; /* Ajusta según sea necesario */
+}
+
+
+/* Estilos personalizados para el header con video de fondo */
+header {
+    position: relative;
+    height: 60vh; /* Ajusta la altura del header según sea necesario */
+    min-height: 400px; /* Establece una altura mínima para evitar que el header sea demasiado pequeño */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+#videoFondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(10px); /* Ajusta el valor de blur según sea necesario */
+}
+
+#textoSobreVideo {
+    z-index: 1;
+}
+
+#experimentados {
+    padding-top: 32px;
+    padding-bottom: 4px;
+    background-color: #161a1d;
+}
+
+#profesionales {
+    padding-top: 32px;
+    padding-bottom: 4px;
+    background-color: #660708;
+}
+
+/* Estilos para el footer */
+footer {
+    background-color: black; /* Color de fondo del footer */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-top: 0;
+}
+
+section {
+    margin-top: 20px; /* Ajusta el margen superior según sea necesario */
+    margin-bottom: 20px; /* Ajusta el margen inferior según sea necesario */
+    max-width: 1200px; /* Ajusta según sea necesario */
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #3b0b0b;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.carrusel-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.container.mt-4 {
+    background-color: #ca3744;
+    /* Tono vino oscuro */
+    color: #fff;
+    /* Texto blanco */
+    padding: 20px;
+    /* Ajustar el espacio interno según sea necesario */
+    border-radius: 10px;
+    /* Bordes redondeados */
+    max-width: 800px; /* Ajusta según sea necesario */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-img-top {
+    height: 200px; /* Ajusta según sea necesario */
+    object-fit: cover;
+}
+
+#tracker {
+    width: 75%;
+}
+
+button.btn-primary {
+    margin-left: 10px;
+    background-color: black;
+    border: none;
+    color: white;
+    transition: background-color 1s ease;
+}
+
+button.btn-primary:hover {
+    background-color: red;
+}
+
+.container form {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+}
+
+.container input {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: grey;
+    border: none;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+    transition: background-color 1s ease;
+}
+
+.container input:hover {
+    background-color: #ec6772;
+}
+
+h4{
+    text-align: center;
 }

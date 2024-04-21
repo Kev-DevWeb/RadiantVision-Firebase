@@ -293,3 +293,7 @@ button.btn-primary:hover {
 .carousel-control-next:hover {
   background-color: #ddd;
 }
+
+#formulario{
+  margin-left: 20px;
+}
