@@ -1,35 +1,89 @@
+/* Estilos generales */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url('tu-imagen.jpg');
-    background-size: cover;
+    background-color: #000000;
+    color: #ffffff; /* Color del texto */
 }
 
-#perfil {
+/* Estilos para el encabezado */
+header {
+    background-color: #202225; /* Color de fondo del encabezado */
     padding: 20px;
 }
 
+/* Estilos para la barra de navegación */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff; /* Color del texto en enlaces */
+}
+
+nav ul li a:hover {
+    color: #ff4654; /* Color del enlace al pasar el ratón */
+}
+
+/* Estilos para el contenido principal */
+main {
+    padding: 20px;
+}
+
+/* Estilos para la sección de perfil */
+#perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+#perfil-header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#perfil-header h2, #perfil-header p {
+    color: #ff4654; /* Color rojo */
+}
+
+.perfil-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* Estilos para los botones */
 button {
     padding: 10px 20px;
-    margin-bottom: 20px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #ff4654;
+    color: white; /* Color del texto */
     border: none;
     cursor: pointer;
+    margin-left: 10px; /* Espacio entre el botón y el formulario */
 }
 
-button:hover {
-    background-color: #45a049;
+.btnProfile:hover {
+    background-color: #d92634; /* Color del botón más oscuro al pasar el ratón */
 }
 
+/* Estilos para el formulario */
 form {
-    background-color: #f2f2f2;
+    background-color: #282b2e; /* Color de fondo del formulario */
     padding: 20px;
     border-radius: 5px;
 }
 
-input[type=text] {
+input[type="text"], input[type="submit"] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -37,36 +91,45 @@ input[type=text] {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    color: #ffffff; /* Color del texto en los inputs */
 }
 
-input[type=submit] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
+input[type="submit"] {
+    background-color: #ff4654;
     cursor: pointer;
 }
 
-input[type=submit]:hover {
-    background-color: #45a049;
+input[type="submit"]:hover {
+    background-color: #d92634; /* Color del botón más oscuro al pasar el ratón */
 }
 
-.carrusel {
-    display: flex;
-    overflow-x: auto;
-    white-space: nowrap;
-    padding: 20px 0;
+/* Estilos para el contenedor principal */
+.main-container {
+    border-radius: 10px; /* Borde redondeado */
+    background-color: #282c34; /* Color de fondo del contenedor */
+    padding: 20px; /* Espaciado interno */
 }
 
-.card {
-    width: 200px;
-    margin: 0 10px;
-    display: inline-block;
-    background-color: #f2f2f2;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+.carousel-control-prev,
+.carousel-control-next {
+    font-size: 1rem;
+    width: 20px;
+    height: 20px;
+    top: calc(50% - 10px); /* Alinea verticalmente al centro */
+    background-color: rgba(255, 255, 255, 0.5); /* Fondo semitransparente */
+    border-radius: 50%; /* Botones redondeados */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* Icono semitransparente */
+    color: white; /* Color del icono */
+    border-radius: 50%; /* Icono redondeado */
+}
+
+.container-cursos1{
+    border-radius: 20px;
+}
+#linking {
+    color: black; /* Cambia el color del texto en el input */
 }

@@ -3,52 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil de Usuario</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
-
+    <title>Perfil de Usuario - Radiant Vision</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="{{ url_for('static', filename='js/profile.js') }}" type="module"></script>
 </head>
-<body>
-<div id="navbar-container"></div>
-<div id="perfil">
-    <button onclick="document.getElementById('formulario').style.display='block'">Actualizar Usuario</button>
-    <div id="formulario">
-        <!-- Formulario para actualizar el usuario -->
-        <form action="/actualizarUsuario" method="post">
-            <!-- Campos del formulario -->
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre"><br>
-            <label for="email">Email:</label>
-            <input type="text" id="email" name="email"><br>
-            <!-- Botón para enviar el formulario -->
-            <input type="submit" value="Actualizar">
-        </form> 
-    </div>
-</div>
+<body class="bg-dark" data-navbar-url="{{ url_for('static', filename='html/nav.html') }}">
+    <header>
+        <div id="navbar-container"></div>
+        <!-- Header -->
+    </header>
+    <main>
+        <div class="main-container">
+            <section id="perfil">
+                <div id="perfil-header">
+                    <h2>Bienvenido</h2>
+                    <p>Si cambiaste de Riot tag recientemente, actualiza tu URL de Tracker.gg</p>
+                </div>
+                <div class="perfil-content">
+                    <div>
+                        <button id="boton-actualizar" class="btnProfile">Actualizar URL</button>
+                        <button id="boton-analisis" class="btnProfile">Comenzar análisis</button>
+                    </div>
+                    <div id="formulario" style="display: none;">
+                        <!-- Formulario para actualizar el usuario -->
+                        <form action="/actualizarUsuario" method="post" id="formLinkAgain">
+                            <label for="nombre">URL Valorant Tracker:</label>
+                            <input type="text" id="linking" name="nombre" placeholder="https://tracker.gg/valorant/profile/riot/example%example/overview"><br>
+                            <input type="submit" value="Actualizar">
+                        </form> 
+                    </div>
+                </div>
+            </section>
+            <section class="container mt-5" id="Recomendados"> <!-- Añadido margen superior -->
+                <div class="bg-secondary container-cursos1 ml-3"> <!-- Añadido margen a la izquierda -->
+                    <h3>Cursos recomendados</h3> <!-- Cambiado el cierre de la etiqueta h3 -->
+                    <div id="carouselExampleControlsNoTouching" class="carousel slide p-8" data-bs-touch="false">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row">
+                                    <div class="col-md-4 ml-2"> <!-- Añadido margen a la izquierda -->
+                                        <div class="card mb-3" style="max-width: 18rem;">
+                                            <div class="card-header">Header</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Curso 1</h5>
+                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card mb-3" style="max-width: 18rem;">
+                                            <div class="card-header">Header</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Curso 2</h5>
+                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card mb-3" style="max-width: 18rem;">
+                                            <div class="card-header">Header</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Curso 3</h5>
+                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-<!-- Espacio de interfaz para carruseles de cards -->
-<div class="carrusel">
-    <!-- Primer carrusel con 6 cards -->
-    <!-- Repite el siguiente div para agregar más cards -->
-    <div class="card">Contenido de la card 1</div>
-    <!-- ... -->
-</div>
-<div class="carrusel">
-    <!-- Segundo carrusel con 6 cards -->
-    <!-- Repite el siguiente div para agregar más cards -->
-    <div class="card">Contenido de la card 1</div>
-    <!-- ... -->
-</div>
-<div class="carrusel">
-    <!-- Tercer carrusel con 6 cards -->
-    <!-- Repite el siguiente div para agregar más cards -->
-    <div class="card">Contenido de la card 1</div>
-    <!-- ... -->
-</div>
-<script src="{{ url_for('static', filename='js/loadnav.js') }}" type="module"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-    crossorigin="anonymous"></script>
+                            <div class="carousel-item active">
+                                <div class="row">
+                                    <div class="col-md-4 ml-2"> <!-- Añadido margen a la izquierda -->
+                                        <div class="card mb-3" style="max-width: 18rem;">
+                                            <div class="card-header">Header</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Curso 4</h5>
+                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card mb-3" style="max-width: 18rem;">
+                                            <div class="card-header">Header</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Curso 5</h5>
+                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card mb-3" style="max-width: 18rem;">
+                                            <div class="card-header">Header</div>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Curso 6</h5>
+                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Agrega más elementos carousel-item según sea necesario -->
+                        </div>
+                        <!-- Botones de navegación -->
+                        <button class="carousel-control-prev btn-sm" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev" style="top: 50%">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next btn-sm" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next" style="top: 50%">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+    </main>
+    
+    
+    <footer>
+        <!-- Footer -->
+        <p>Derechos de Autor © 2024 Radiant Vision. Todos los derechos reservados.</p>
+    </footer>
+    
+    <script src="{{ url_for('static', filename='js/loadnav.js') }}" type="module"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

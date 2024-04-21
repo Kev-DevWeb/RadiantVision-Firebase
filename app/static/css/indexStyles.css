@@ -137,6 +137,7 @@ header .lead {
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
   background-color: #ddd;
+
   /* Cambiar el color al pasar el ratón */
 }
 
@@ -265,4 +266,30 @@ button.btn-primary:hover {
 }
 .container input:hover{
   background-color: #ec6772 ;
+}
+
+/* Estilos para los botones del carrusel */
+.carousel-control-prev,
+.carousel-control-next {
+  width: 40px; /* Reducir el ancho del botón */
+  height: 40px; /* Reducir la altura del botón */
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px; /* Reducir el tamaño de la fuente del icono */
+  color: gray;
+  margin-top: 150px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: gray;
+  border-radius: 5px;
+  padding: 8px; /* Reducir el relleno del icono */
+}
+
+/* Cambiar color al pasar el ratón sobre los botones */
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background-color: #ddd;
 }
