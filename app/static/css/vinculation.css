@@ -1,0 +1,314 @@
+.navbar-brand {
+    font-family: "Instrument Sans", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: white ;
+  }
+  
+  .navbar-brand:hover {
+    color: #f5dc1f;
+  }
+  
+  .navbar-nav .nav-link {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 18px; /* Ajusta este valor según lo que necesites */
+  }
+  
+  .navbar-nav .nav-link:hover {
+    box-shadow: 0 0 5px #ca3744; /* Define el sombreado al pasar el mouse */
+    border-radius: 10px;
+    background-color: #ca3744; /* Cambia el color de fondo al pasar el mouse */
+    color: black; /* Cambia el color del texto al pasar el mouse */
+  }
+  
+  .navbar .btn-outline-light {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 18px; /* Ajusta este valor según lo que necesites */
+  }
+  
+  .navbar .btn-outline-light:hover {
+    background-color: #ca3744; /* Cambia el color de fondo del botón al pasar el mouse */
+    border-color: #ca3744; /* Cambia el color del borde del botón al pasar el mouse */
+  }
+  
+  /* Cambiar fondo de header a vino */
+  header {
+    /* Tono vino oscuro */
+    margin-top: 75px;
+  }
+  
+  header .display-4 {
+    font-family: "Instrument Sans", sans-serif;
+    font-weight: 600;
+    /* Puedes ajustar el grosor aquí */
+  }
+  
+  header .lead {
+    font-size: 24px;
+    font-weight: 400;
+    /* Puedes ajustar el grosor aquí */
+  }
+  
+  .container.mt-4 h2 {
+    text-align: center;
+    font-weight: 600;
+    margin-top: 0px;
+    padding-bottom: 40px;
+  }
+  
+  /* Cambiar fondo de la sección de cursos a vino */
+  .container.mt-4 {
+    border-color: #000000;
+    /* Tono vino oscuro */
+    color: #ca3744;
+    /* Texto blanco */
+    padding: 20px;
+  }
+  
+  /* Cambiar el color del botón de los cursos a vino */
+  .btn-primary {
+    background-color: #000000;
+    /* Tono vino oscuro */
+    border-color: #ffffff;
+    /* Borde vino oscuro */
+  }
+  
+  @media (min-width: 768px) {
+    .container.mt-4 {
+      margin-left: 30px;
+      margin-right: 30px;
+    }
+  }
+  
+  /* Estilos personalizados para el carrusel */
+  #carruselCursos .carousel-inner {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  
+  #carruselCursos .carousel-item {
+    width: 100%;
+    /* Ajusta según sea necesario */
+    transition: transform 0.6s ease;
+  }
+  
+  #carruselCursos .col-md-4 {
+    flex: 0 0 auto;
+    margin-right: 2px;
+    /* Ajusta según sea necesario */
+  }
+  #carruselCursos .card {
+    margin: 0 5px; /* Ajusta según sea necesario */
+  }
+  
+  /* Estilos para los botones del carrusel */
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 50px;
+    /* Tamaño del cuadro de botón */
+    height: 50px;
+    background-color: transparent;
+    /* Fondo transparente */
+    border: none;
+    /* Sin borde */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    font-size: 24px;
+    /* Tamaño del ícono */
+    color: gray;
+    /* Color de los botones */
+    margin-top: 150px;
+    /* Ajusta según sea necesario para bajar los botones */
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: gray;
+    /* Color de fondo de los íconos */
+    border-radius: 5px;
+    /* Bordes redondeados de los íconos */
+    padding: 10px;
+    /* Relleno de los íconos */
+  }
+  
+  /* Cambiar color al pasar el ratón sobre los botones */
+  .carousel-control-prev:hover,
+  .carousel-control-next:hover {
+    background-color: #ddd;
+    /* Cambiar el color al pasar el ratón */
+  }
+  
+  /* Estilos personalizados para el header con video de fondo */
+  header {
+    position: relative;
+    height: 60vh; /* Ajusta la altura del header según sea necesario */
+    min-height: 400px; /* Establece una altura mínima para evitar que el header sea demasiado pequeño */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+  }
+  
+  #videoFondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(10px); /* Ajusta el valor de blur según sea necesario */
+  }
+  
+  #textoSobreVideo {
+    z-index: 1;
+  }
+  
+  
+  /* Estilos para el footer */
+  footer {
+    background-color: black; /* Color de fondo del footer */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-top: 0;
+  }
+  
+  section {
+    margin-top: 50px;
+    margin-bottom: 100px; /* Ajusta según sea necesario para dejar suficiente espacio */
+    max-width: 1200px; /* Ajusta según sea necesario */
+    max-height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #da1919;
+    padding: 30px;
+    border-radius: 20px;
+    
+  }
+  
+  .container.mt-4 {
+    z-index: 3;
+    background-color: #ca3744;
+    /* Tono vino oscuro */
+    color: #fff;
+    /* Texto blanco */
+    padding: 20px;
+    /* Ajustar el espacio interno según sea necesario */
+    border-radius: 10px;
+    /* Bordes redondeados */
+    max-width: 800px; /* Ajusta según sea necesario */
+    margin-left: auto;
+    margin-right: auto;
+    max-height: fit-content;
+  }
+  
+  #tracker {
+    width: 80%;
+    z-index: 3;
+  }
+  
+  button.btn-primary {
+    margin-bottom: 40px;
+    z-index: 3;
+    background-color: rgb(59, 59, 59);
+    border: none;
+    color: white;
+    transition: background-color 1s ease;
+    font-size: 20px; /* Ajusta este valor según lo que necesites */
+  padding: 15px 30px; /* Ajusta estos valores según lo que necesites */
+  }
+  
+  button.btn-primary:hover {
+    background-color: red;
+  }
+  
+  .container form{
+    background-color: #c58787;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+    z-index: 3;
+  }
+  
+  .container input{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: rgb(177, 174, 174);
+    border: none;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+    transition: background-color 1s ease;
+  }
+  .container input:hover{
+    background-color: #fdfdfd ;
+  }
+
+  body {
+    font-family: "Inter", sans-serif;
+    color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  header, .container, footer {
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Asegúrate de que el footer no esté fijo si quieres que todo esté centrado */
+  footer {
+    margin-top: auto;
+    position: relative;
+    bottom: auto;
+  }
+  p {
+    margin: 40px; /* Ajusta este valor según lo que necesites */
+    filter: brightness(100%);
+  }
+  
+  .container {
+    position: relative;
+    border-radius: 20px;
+  }
+  
+  .container::before {
+    content: "";
+    background-image: url('/static/src/wallpapers_imagenes/wp11673899.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(50%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit; /* Para mantener los bordes redondeados */
+  }
+  
+  h1.display-4 {
+    margin-top: 50px; /* Ajusta este valor según lo que necesites */
+    z-index: 4;
+  }
+  form {
+    border-radius: 20px; /* Ajusta este valor según lo que necesites */
+  }

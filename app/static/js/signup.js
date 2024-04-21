@@ -49,7 +49,7 @@ signupForm.addEventListener("submit", async (e) => {
     } else if (error.code === "auth/email-already-in-use") {
       showMessage("El correo ya esta en uso", "error");
     } else if (error.code) {
-      // Otros errores
+      showMessage("Error al registrar", "error");
     }
   }
 });
