@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup as bs
 import pandas as pd
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+import time
 
 app = Flask(__name__)
 
@@ -28,18 +29,30 @@ def perfil():
         # Código para extraer datos del sitio web y realizar la predicción
         url = request.form['linkBeforeInput']
         
-        options = Options()
-        browser = webdriver.Chrome(options=options)
-        browser.set_page_load_timeout(30)
+        options = webdriver.FirefoxOptions()
+        ##options.add_argument('--ignore-certificate-errors')  # Opcional: para ignorar errores de certificado SSL si es necesario
+
+        # Configurar el tiempo de espera máximo antes de que se genere un error de timeout
+        timeout = 60  # Tiempo en segundos
+        options.add_argument('--disable-dev-shm-usage')  # Deshabilitar el uso de la memoria compartida
+        options.add_argument(f'--page-load-timeout={timeout}')
+
+        # Iniciar el navegador con las opciones configuradas
+        browser = webdriver.Firefox(options=options)
+        
         
         try:
             browser.get(url)
+            browser.implicitly_wait(30)
         except:
             pass
         
+        time.sleep(15)
+
         html = browser.page_source
         soup = bs(html, 'lxml')
 
+        
         browser.close()
         browser.quit()
         
@@ -100,10 +113,14 @@ def perfil():
                                     'avgDmgRound': avgDmgRound,'headPercent': headshots, 
                                     'boddyPercent': boddyshots, 'legsPercent': legsshots}])
         
-        clf = joblib.load('modell.pkl')
         
-        prediction = clf.predict(playerData)
+        #lectura del modelo
+        model_path='C:/Users/Joseph/Documents/GitHub/RadiantVision-Firebase/app/model_jb.joblib'
+        clf=joblib.load(model_path)
 
+        # Realizar la predicción
+        prediction = clf.predict(playerData)
+        print(prediction)
         # Convertir la predicción a un formato JSON
         prediction_json = jsonify({'prediction': prediction.tolist()})
         
