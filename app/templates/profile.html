@@ -29,6 +29,11 @@
     ></script>
   </head>
   <body data-navbar-url="{{ url_for('static', filename='html/nav.html') }}">
+
+    <form id="predictionForm" action="/perfil" method="post" style="display: none;">
+      <input type="hidden" id="linkBeforeInput" name="linkBeforeInput" value="">
+  </form>
+
     <header>
       <div id="navbar-container"></div>
       <!-- Header -->
@@ -48,7 +53,6 @@
                     <label for="nombre">URL Valorant Tracker:</label>
                     <input type="text" id="linking" name="nombre" placeholder="https://tracker.gg/valorant/profile/riot/example%example/overview"><br>
                     <input type="submit" value="Actualizar">
-                    <input type="hidden" id="trackerLink" name="trackerLink" value="">
                 </form> 
             </div>
         </div>

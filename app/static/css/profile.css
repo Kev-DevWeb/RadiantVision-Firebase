@@ -86,7 +86,7 @@ input[type="text"], input[type="submit"] {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    color: #ffffff; /* Color del texto en los inputs */
+    color: #000000; /* Color del texto en los inputs */
 }
 
 input[type="submit"] {
