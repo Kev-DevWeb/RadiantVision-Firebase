@@ -60,6 +60,29 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 const linkForm = document.querySelector("#formLinkAgain");
 
+// Función para realizar la solicitud AJAX y obtener la predicción
+function obtenerPrediccion() {
+    // Hacer una solicitud AJAX al servidor para obtener la predicción
+    fetch('/perfil', {
+      method: 'POST',
+      body: JSON.stringify(data), // Si necesitas enviar datos al servidor
+      headers:{
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      // Acceder a la predicción devuelta
+      const prediction = data.prediction;
+      console.log('Predicción:', prediction);
+      // Hacer algo con la predicción, como mostrarla en la interfaz de usuario
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+}
+
+
 linkForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -80,6 +103,8 @@ linkForm.addEventListener("submit", async (e) => {
 
         // Guardar el enlace en una variable
         let userLink = link;
+        // Después de obtener el enlace en la variable userLink
+        document.getElementById('trackerLink').value = userLink;
 
         // Consultar el enlace antes de la actualización
         const docRefBefore = doc(db, "users", uid);
@@ -101,6 +126,10 @@ linkForm.addEventListener("submit", async (e) => {
         showMessage("Vinculación exitosa", "success");
         showMessage("Puedes cerrar el formulario dando click en Actualizar URL nuvamente", "success");
         showMessage("Puedes comenzar a usar la herramienta, click en Comenzar analisis", "success");
+
+        // Obtener y mostrar la predicción
+        obtenerPrediccion();
+        
     } catch (error) {
         // En caso de error, mostrar un mensaje de error
         showMessage("Vinculación fallida", "error");
