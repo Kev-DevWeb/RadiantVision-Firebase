@@ -118,22 +118,21 @@ def perfil():
         
         
         #lectura del modelo
-        model_path='C:/Users/vinke/OneDrive/Documentos/DesarrolloWeb/Radiant-Vision/app/model_jb.joblib'
+        model_path='C:/Users/Joseph/Documents/GitHub/RadiantVision-Firebase/app/model_jb.joblib'
         clf=joblib.load(model_path)
 
        # Realizar la predicción
         prediction = clf.predict(playerData)
-        prediction_text = str(prediction)  # Convertir a texto
-        print(prediction_text)
+        print(prediction)
         
         if prediction is not None:
-            # Convertir la predicción a un formato JSON
-            prediction_json = jsonify({'prediction': prediction.tolist()})
+            prediction_json = {'prediction': prediction.tolist()}
         else:
-            prediction_json = jsonify({})
+            prediction_json = {}
 
-        return render_template('profile.html.jinja2', prediction_json=prediction_json)
-    else:    
+        # Pasar la predicción como contexto al renderizar la plantilla
+        return render_template('profile.html.jinja2', prediction=prediction_json)
+    else:
         return render_template('profile.html.jinja2')
 
 if __name__ == '__main__':

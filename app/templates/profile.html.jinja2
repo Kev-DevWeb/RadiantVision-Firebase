@@ -27,9 +27,6 @@
       src="{{ url_for('static', filename='js/profile.js') }}"
       type="module"
     ></script>
-    <script
-      src="{{ url_for('static', filename='js/predictResult.js') }}"
-    ></script>
 
     
   </head>
@@ -192,10 +189,27 @@
       </p>
     </footer>
     
-         <script>
-        // Utiliza 'prediction_json' como JSON
-        var prediction_json = {{ prediction_json | safe }};
-        console.log(prediction_json);
+    <script>
+        // Verificar si prediction está definida antes de serializarla a JSON
+        {% if prediction is defined %}
+            // Obtener la predicción del contexto
+            var predictionObject = {{ prediction | tojson }};
+    
+            // Obtener el array de predicciones
+            var predictionArray = predictionObject.prediction;
+    
+            // Imprimir la predicción en la consola
+            console.log("Predicción:", predictionArray);
+
+            // Convertir el array a una cadena de texto JSON
+            var script = document.createElement('script');
+            script.src = '/static/js/prediction.js';
+            script.setAttribute('prediction', JSON.stringify(predictionArray));
+            document.head.appendChild(script);
+
+        {% else %}
+            console.log("No hay predicción disponible.");
+        {% endif %}
     </script>
 
     <script
