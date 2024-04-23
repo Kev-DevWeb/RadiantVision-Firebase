@@ -7,6 +7,9 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import time
 
+# En tu función perfil()
+
+
 app = Flask(__name__)
 
 @app.route('/home')
@@ -115,20 +118,25 @@ def perfil():
         
         
         #lectura del modelo
-        model_path='C:/Users/Joseph/Documents/GitHub/RadiantVision-Firebase/app/model_jb.joblib'
+        model_path='C:/Users/vinke/OneDrive/Documentos/DesarrolloWeb/Radiant-Vision/app/model_jb.joblib'
         clf=joblib.load(model_path)
 
-        # Realizar la predicción
+       # Realizar la predicción
         prediction = clf.predict(playerData)
-        print(prediction)
-        # Convertir la predicción a un formato JSON
-        prediction_json = jsonify({'prediction': prediction.tolist()})
+        prediction_text = str(prediction)  # Convertir a texto
+        print(prediction_text)
         
-        # Devolver la predicción como parte del contexto del renderizado de la plantilla
-        return render_template('profile.html', prediction=prediction_json)
+        if prediction is not None:
+            # Convertir la predicción a un formato JSON
+            prediction_json = jsonify({'prediction': prediction.tolist()})
+        else:
+            prediction_json = jsonify({})
 
+        return render_template('profile.html.jinja2', prediction_json=prediction_json)
     else:    
-        return render_template('profile.html')
+        return render_template('profile.html.jinja2')
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
+
+

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil de Usuario - Radiant Vision</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/profile.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <script
+      src="{{ url_for('static', filename='js/loadnav.js') }}"
+      type="module"
+    ></script>
+    <script
+      src="{{ url_for('static', filename='js/profile.js') }}"
+      type="module"
+    ></script>
+    <script
+      src="{{ url_for('static', filename='js/predictResult.js') }}"
+    ></script>
+
+    
+  </head>
+  <body data-navbar-url="{{ url_for('static', filename='html/nav.html') }}">
+    <form
+      id="predictionForm"
+      action="/perfil"
+      method="post"
+      style="display: none"
+    >
+      <input
+        type="hidden"
+        id="linkBeforeInput"
+        name="linkBeforeInput"
+        value=""
+      />
+    </form>
+
+    <header>
+      <div id="navbar-container"></div>
+      <!-- Header -->
+      <section id="perfil">
+        <div id="perfil-header">
+          <h2 id="welcome-message">Bienvenido Usuario</h2>
+          <p>
+            <br>
+            *Si cambiaste de Riot tag recientemente, actualiza tu URL de
+            Tracker.gg <br />
+            Recuerda: Al copiar tu URL de tracker, tu perfil debe estar en la sección Competitive
+            <br />
+            <br />
+            En caso de no ser asi, puedes comenzar el analisis
+          </p>
+        </div>
+        <div class="perfil-content">
+          <div>
+            <button id="boton-actualizar" class="btnProfile">
+              Actualizar URL
+            </button>
+            <button id="boton-analisis" class="btnProfile">
+              Comenzar análisis
+            </button>
+          </div>
+          <div
+            id="formulario"
+            style="display: none; margin-top: 20px; margin-left: 20px"
+          >
+            <!-- Formulario para actualizar el usuario -->
+            <form action="/actualizarUsuario" method="post" id="formLinkAgain">
+              <label for="nombre">URL Valorant Tracker:</label>
+              <input
+                type="text"
+                id="linking"
+                name="nombre"
+                placeholder="https://tracker.gg/valorant/profile/riot/example%example/overview"
+              /><br />
+              <input type="submit" value="Actualizar" />
+            </form>
+          </div>
+        </div>
+      </section>
+    </header>
+    <main>
+      <div class="main-container">
+        <div></div>
+        <section class="container mt-4" id="principiantes">
+          <div class="mt-4">
+            <h2>Cursos recomendados:</h2>
+            <h4 id="nivel">Nivel de habilidad: Nivel</h4>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-6 col-12">
+              <div class="card">
+                <img
+                  src="{{ url_for ('static', filename ='src/Logo_Wallpapers/valorantLogo/VALORANT_logo4.jpg')}}"
+                  class="card-img-top"
+                  alt="Curso 1"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">¿Qué es Valorant?</h5>
+                  <p class="card-text">
+                    Conoce de qué se trata Valorant y sus conceptos básicos.
+                  </p>
+                  <a href="#" class="btn btn-primary">Más detalles</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-12">
+              <div class="card">
+                <video class="card-img-top" autoplay loop muted>
+                  <source
+                    src="{{ url_for ('static', filename ='src/LNY_Sage-Wallpapers/LNY_Sage-Wallpapers/Animated/LNY_Sage-5_CallBack.mp4')}}"
+                    type="video/mp4"
+                  />
+                  Tu navegador no soporta el elemento de video.
+                </video>
+                <div class="card-body">
+                  <h5 class="card-title">Lenguaje coloquial del juego</h5>
+                  <p class="card-text">
+                    ¿Confundido con los conceptos del juego? Aprende el nuevo
+                    idioma Valorant.
+                  </p>
+                  <a href="#" class="btn btn-primary">Más detalles</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 col-sm-6 col-12">
+              <div class="card">
+                <video class="card-img-top" autoplay loop muted>
+                  <source
+                    src="{{ url_for ('static', filename ='src/clips/curso5.mp4')}}"
+                    type="video/mp4"
+                  />
+                  Tu navegador no soporta el elemento de video.
+                </video>
+                <div class="card-body">
+                  <h5 class="card-title">¿Cómo y cuándo disparar?</h5>
+                  <p class="card-text">
+                    Conoce técnicas de disparo para dar tus balas al 100%.
+                  </p>
+                  <a href="#" class="btn btn-primary">Más detalles</a>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 col-sm-6 col-12">
+              <div class="card">
+                <video class="card-img-top" autoplay loop muted>
+                  <source
+                    src="{{ url_for ('static', filename ='src/clips/curso5.mp4')}}"
+                    type="video/mp4"
+                  />
+                  Tu navegador no soporta el elemento de video.
+                </video>
+                <div class="card-body">
+                  <h5 class="card-title">¿Cómo y cuándo disparar?</h5>
+                  <p class="card-text">
+                    Conoce técnicas de disparo para dar tus balas al 100%.
+                  </p>
+                  <a href="#" class="btn btn-primary">Más detalles</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fin del bloque que se puede duplicar -->
+
+          <!-- Agrega más bloques duplicando el código anterior según sea necesario -->
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <!-- Footer -->
+      <p>
+        © 2024 Radiant Vision by Automata Software ® Todos los derechos
+        reservados.
+      </p>
+    </footer>
+    
+         <script>
+        // Utiliza 'prediction_json' como JSON
+        var prediction_json = {{ prediction_json | safe }};
+        console.log(prediction_json);
+    </script>
+
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

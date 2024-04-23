@@ -1,49 +1,46 @@
 import { doc, updateDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 import { auth, db } from "../js/firebase.js";
 import { showMessage } from "../js/toast.js";
 import {} from "../js/profileCheck.js";
+//import {} from "../js/predictResult.js";
 
-// Función para mostrar el mensaje de bienvenida
-function showWelcomeMessage(UserAfter) {
-    const welcomeMessageElement = document.getElementById('welcome-message');
-    
-    // Obtener la hora actual
-    const currentHour = new Date().getHours();
-    
-    // Determinar el saludo apropiado basado en la hora del día
-    let greeting;
-    if (currentHour < 12) {
-        greeting = "Buenos días";
-    } else if (currentHour < 18) {
-        greeting = "Buenas tardes";
-    } else {
-        greeting = "Buenas noches";
-    }
-    
-    // Actualizar el mensaje de bienvenida
-    welcomeMessageElement.innerText = `${greeting}, ${UserAfter}!`;
-}
-
-// Función para manejar el evento de carga de usuario
 async function handleUserLoad() {
     try {
-        // Obtener información del usuario autenticado
-        const user = auth.currentUser;
+        onAuthStateChanged(auth, async (usuario) => {
+            if (usuario) {
+              const uid = usuario.uid;
+              const docRef = doc(db, "users", uid);
+              const docSnap = await getDoc(docRef);
+          
+              if (docSnap.exists()) {
+                // Declare the variable 'prof' before assigning a value to it
+                let prof = docSnap.data().user;
+                showWelcomeMessage(prof); 
+              } 
+            } else {
+              console.log('Error al cargar usuario');
+            }
+          });
 
-        if (user) {
-            // Si hay un usuario autenticado, obtener su nombre de usuario desde Firestore
-            const docRef = doc(db, "users", user.uid);
-            const docSnap = await getDoc(docRef);
-            const UserAfter = docSnap.data().user;
-            showWelcomeMessage(UserAfter);
-        }
     } catch (error) {
         // En caso de error, mostrar un mensaje de error en la consola
         console.error("Error getting user document:", error);
     }
 }
 
-// Manejar el evento DOMContentLoaded para cargar el usuario y mostrar el mensaje de bienvenida
+
+function showWelcomeMessage(UserAfter) {
+    const welcomeMessageElement = document.getElementById('welcome-message');
+ 
+    // Actualizar el mensaje de bienvenida
+    welcomeMessageElement.innerText = `Bienvenido, ${UserAfter}!`;
+}
+
+
+
+
+// Manejar el evento DOMContentLoaded 
 document.addEventListener("DOMContentLoaded", async () => {
     await handleUserLoad();
 
