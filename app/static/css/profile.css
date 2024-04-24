@@ -51,6 +51,11 @@ main {
     color: #ff4654; /* Color rojo */
 }
 
+.recomendar{
+    text-align: center;
+    color: #ccc;
+}
+
 .perfil-content {
     display: flex;
     flex-direction: row;
@@ -115,9 +120,6 @@ input[type="submit"]:hover {
     color: #ffffff; /* Color del texto en el cuerpo de la tarjeta */
 }
 
-.card-title {
-    color: #ff4654; /* Color del título de la tarjeta */
-}
 
 .card-text {
     color: #ffffff; /* Color del texto del cuerpo de la tarjeta */
@@ -293,7 +295,7 @@ footer {
     bottom: 0;
     width: 100%;
     margin-top: 0;
-}
+  }
 
 section {
     margin-top: 20px; /* Ajusta el margen superior según sea necesario */
@@ -376,4 +378,8 @@ button.btn-primary:hover {
 
 h4{
     text-align: center;
+    color: #ccc;
+}
+.card-title{
+    color: #ccc;
 }

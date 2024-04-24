@@ -1,225 +1,467 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Perfil de Usuario - Radiant Vision</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/profile.css') }}"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
-    />
-    <script
-      src="{{ url_for('static', filename='js/loadnav.js') }}"
-      type="module"
-    ></script>
-    <script
-      src="{{ url_for('static', filename='js/profile.js') }}"
-      type="module"
-    ></script>
 
-    
-  </head>
-  <body data-navbar-url="{{ url_for('static', filename='html/nav.html') }}">
-    <form
-      id="predictionForm"
-      action="/perfil"
-      method="post"
-      style="display: none"
-    >
-      <input
-        type="hidden"
-        id="linkBeforeInput"
-        name="linkBeforeInput"
-        value=""
-      />
-    </form>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil de Usuario - Radiant Vision</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+  <script src="{{ url_for('static', filename='js/loadnav.js') }}" type="module"></script>
+  <script src="{{ url_for('static', filename='js/profile.js') }}" type="module"></script>
 
-    <header>
-      <div id="navbar-container"></div>
-      <!-- Header -->
-      <section id="perfil">
-        <div id="perfil-header">
-          <h2 id="welcome-message">Bienvenido Usuario</h2>
-          <p>
-            <br>
-            *Si cambiaste de Riot tag recientemente, actualiza tu URL de
-            Tracker.gg <br />
-            Recuerda: Al copiar tu URL de tracker, tu perfil debe estar en la sección Competitive
-            <br />
-            <br />
-            En caso de no ser asi, puedes comenzar el analisis
-          </p>
+
+</head>
+
+<body data-navbar-url="{{ url_for('static', filename='html/nav.html') }}">
+  <form id="predictionForm" action="/perfil" method="post" style="display: none">
+    <input type="hidden" id="linkBeforeInput" name="linkBeforeInput" value="" />
+  </form>
+
+  <header>
+    <div id="navbar-container"></div>
+    <!-- Header -->
+    <section id="perfil">
+      <div id="perfil-header">
+        <h2 id="welcome-message">Bienvenido Usuario</h2>
+        <p>
+          <br>
+          *Si cambiaste de Riot tag recientemente, actualiza tu URL de
+          Tracker.gg <br />
+          Recuerda: Al copiar tu URL de tracker, tu perfil debe estar en la sección Competitive
+          <br />
+          <br />
+          En caso de no ser asi, puedes comenzar el analisis
+        </p>
+      </div>
+      <div class="perfil-content">
+        <div>
+          <button id="boton-actualizar" class="btnProfile">
+            Actualizar URL
+          </button>
+          <button id="boton-analisis" class="btnProfile">
+            Comenzar análisis
+          </button>
         </div>
-        <div class="perfil-content">
-          <div>
-            <button id="boton-actualizar" class="btnProfile">
-              Actualizar URL
-            </button>
-            <button id="boton-analisis" class="btnProfile">
-              Comenzar análisis
-            </button>
-          </div>
-          <div
-            id="formulario"
-            style="display: none; margin-top: 20px; margin-left: 20px"
-          >
-            <!-- Formulario para actualizar el usuario -->
-            <form action="/actualizarUsuario" method="post" id="formLinkAgain">
-              <label for="nombre">URL Valorant Tracker:</label>
-              <input
-                type="text"
-                id="linking"
-                name="nombre"
-                placeholder="https://tracker.gg/valorant/profile/riot/example%example/overview"
-              /><br />
-              <input type="submit" value="Actualizar" />
-            </form>
-          </div>
+        <div id="formulario" style="display: none; margin-top: 20px; margin-left: 20px">
+          <!-- Formulario para actualizar el usuario -->
+          <form action="/actualizarUsuario" method="post" id="formLinkAgain">
+            <label for="nombre">URL Valorant Tracker:</label>
+            <input type="text" id="linking" name="nombre"
+              placeholder="https://tracker.gg/valorant/profile/riot/example%example/overview" /><br />
+            <input type="submit" value="Actualizar" />
+          </form>
         </div>
+      </div>
+    </section>
+  </header>
+  <main>
+    <div class="main-container">
+      <div><h2 class="recomendar">Cursos recomendados:</h2>
+          <h4 id="nivel" style="display: none">Nivel de habilidad: Nivel</h4></div>
+
+      <section class="container mt-4" id="iron" style="display: none;">
+        <div class="mt-4">
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6 col-12">
+            <div class="card">
+              <img src="{{ url_for ('static', filename ='src/Logo_Wallpapers/valorantLogo/VALORANT_logo4.jpg')}}"
+                class="card-img-top" alt="Curso 1" />
+              <div class="card-body">
+                <h5 class="card-title" style="color: white;">¿Qué es Valorant?</h5>
+                <p class="card-text">
+                  Conoce de qué se trata Valorant y sus conceptos básicos.
+                </p>
+                <a href="#" class="btn btn-primary">Más detalles</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-12">
+            <div class="card">
+              <video class="card-img-top" autoplay loop muted>
+                <source
+                  src="{{ url_for ('static', filename ='src/LNY_Sage-Wallpapers/LNY_Sage-Wallpapers/Animated/LNY_Sage-5_CallBack.mp4')}}"
+                  type="video/mp4" />
+                Tu navegador no soporta el elemento de video.
+              </video>
+              <div class="card-body">
+                <h5 class="card-title" style="color: white;">Lenguaje coloquial del juego</h5>
+                <p class="card-text">
+                  ¿Confundido con los conceptos del juego? Aprende el nuevo
+                  idioma Valorant.
+                </p>
+                <a href="#" class="btn btn-primary">Más detalles</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 col-sm-6 col-12">
+            <div class="card">
+              <video class="card-img-top" autoplay loop muted>
+                <source src="{{ url_for ('static', filename ='src/clips/curso5.mp4')}}" type="video/mp4" />
+                Tu navegador no soporta el elemento de video.
+              </video>
+              <div class="card-body">
+                <h5 class="card-title" style="color: white;">¿Cómo y cuándo disparar?</h5>
+                <p class="card-text">
+                  Conoce técnicas de disparo para dar tus balas al 100%.
+                </p>
+                <a href="#" class="btn btn-primary">Más detalles</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-12">
+              <div class="card">
+                <video class="card-img-top" autoplay loop muted>
+                  <source src="{{ url_for ('static', filename ='src/clips/curso4.mp4')}}" type="video/mp4" />
+                  Tu navegador no soporta el elemento de video.
+                </video>
+                <div class="card-body">
+                  <h5 class="card-title" style="color: white;">Mis primeras bajas!</h5>
+                  <p class="card-text">
+                    Conoce conceptos basicos como crosshair placement y
+                    tecnicas de disparo
+                  </p>
+                  <a href="#" class="btn btn-primary">Más detalles</a>
+                </div>
+              </div>
+            </div>
+
+
+        </div>
+
+        
+
       </section>
-    </header>
-    <main>
-      <div class="main-container">
-        <div></div>
-        <section class="container mt-4" id="principiantes">
-          <div class="mt-4">
-            <h2>Cursos recomendados:</h2>
-            <h4 id="nivel">Nivel de habilidad: Nivel</h4>
+
+
+      <!-------------Bronce ------------------------------------------->
+      <section class="container mt-4" id="bronze"style="display: none;">
+        <div class="mt-4">
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6 col-12">
+            <div class="card">
+              <img src="{{ url_for ('static', filename ='src/personajes/agents.jpg')}}"
+                class="card-img-top" alt="Curso 1" />
+              <div class="card-body">
+                <h5 class="card-title"style="color: white;">Soy rango bajo ¿Cómo puedo mejorar?</h5>
+                <p class="card-text">
+                  Familiarizate con los agentes y las habilidades, roles etc.
+                </p>
+                <a href="#" class="btn btn-primary">Más detalles</a>
+              </div>
+            </div>
           </div>
 
-          <div class="row">
-            <div class="col-sm-6 col-12">
+          <div class="col-sm-6 col-12">
+            <div class="card">
+                <img
+                  src="{{ url_for ('static', filename ='src/personajes/yoru/yoru.jpg')}}"
+                  />
+              <div class="card-body">
+                <h5 class="card-title"style="color: white;">¿Es bueno fillear?</h5>
+                <p class="card-text">
+                  ¿Quieres aprender de todo pero al final sientes que no entiendes nada? Te ayudamos
+                </p>
+                <a href="#" class="btn btn-primary">Más detalles</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 col-sm-6 col-12">
+            <div class="card">
+              <img
+                  src="{{ url_for ('static', filename ='src/maps/haven/haven.jpg')}}"
+                  />
+              <div class="card-body">
+                <h5 class="card-title"style="color: white;">La información es vital</h5>
+                <p class="card-text">
+                  Aprende a conseguir e interpretar información.
+                </p>
+                <a href="#" class="btn btn-primary">Más detalles</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-sm-6 col-12">
               <div class="card">
                 <img
-                  src="{{ url_for ('static', filename ='src/Logo_Wallpapers/valorantLogo/VALORANT_logo4.jpg')}}"
-                  class="card-img-top"
-                  alt="Curso 1"
-                />
+                  src="{{ url_for ('static', filename ='src/weapons/weapons.jpg')}}"
+                  />
                 <div class="card-body">
-                  <h5 class="card-title">¿Qué es Valorant?</h5>
+                  <h5 class="card-title"style="color: white;">Tecnicas de disparo y armas</h5>
                   <p class="card-text">
-                    Conoce de qué se trata Valorant y sus conceptos básicos.
+                    Conoce conceptos basicos como spray, rafaga y strafe. Incluso las armas.
                   </p>
                   <a href="#" class="btn btn-primary">Más detalles</a>
                 </div>
               </div>
             </div>
 
-            <div class="col-sm-6 col-12">
-              <div class="card">
-                <video class="card-img-top" autoplay loop muted>
-                  <source
-                    src="{{ url_for ('static', filename ='src/LNY_Sage-Wallpapers/LNY_Sage-Wallpapers/Animated/LNY_Sage-5_CallBack.mp4')}}"
-                    type="video/mp4"
-                  />
-                  Tu navegador no soporta el elemento de video.
-                </video>
-                <div class="card-body">
-                  <h5 class="card-title">Lenguaje coloquial del juego</h5>
-                  <p class="card-text">
-                    ¿Confundido con los conceptos del juego? Aprende el nuevo
-                    idioma Valorant.
-                  </p>
-                  <a href="#" class="btn btn-primary">Más detalles</a>
-                </div>
-              </div>
-            </div>
 
-            <div class="mt-4 col-sm-6 col-12">
-              <div class="card">
-                <video class="card-img-top" autoplay loop muted>
-                  <source
-                    src="{{ url_for ('static', filename ='src/clips/curso5.mp4')}}"
-                    type="video/mp4"
-                  />
-                  Tu navegador no soporta el elemento de video.
-                </video>
-                <div class="card-body">
-                  <h5 class="card-title">¿Cómo y cuándo disparar?</h5>
-                  <p class="card-text">
-                    Conoce técnicas de disparo para dar tus balas al 100%.
-                  </p>
-                  <a href="#" class="btn btn-primary">Más detalles</a>
-                </div>
-              </div>
-            </div>
-            <div class="mt-4 col-sm-6 col-12">
-              <div class="card">
-                <video class="card-img-top" autoplay loop muted>
-                  <source
-                    src="{{ url_for ('static', filename ='src/clips/curso5.mp4')}}"
-                    type="video/mp4"
-                  />
-                  Tu navegador no soporta el elemento de video.
-                </video>
-                <div class="card-body">
-                  <h5 class="card-title">¿Cómo y cuándo disparar?</h5>
-                  <p class="card-text">
-                    Conoce técnicas de disparo para dar tus balas al 100%.
-                  </p>
-                  <a href="#" class="btn btn-primary">Más detalles</a>
-                </div>
+        </div>
+
+        
+
+        <!-- Agrega más bloques duplicando el código anterior según sea necesario -->
+      </section>
+
+<!-------------Plata ------------------------------------------->
+      <section class="container mt-4" id="silver" style="display: none;">
+        <div class="mt-4">
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6 col-12">
+            <div class="card">
+              <img src="{{ url_for ('static', filename ='src/personajes/sage/trainSage.jpg')}}"
+                class="card-img-top" alt="Curso 1" />
+              <div class="card-body">
+                <h5 class="card-title"style="color: white;">¿Rutinas de aim?</h5>
+                <p class="card-text">
+                  Te daremos a conocer las mejores formas de incrementar tu habilidad
+                </p>
+                <a href="#" class="btn btn-primary">Más detalles</a>
               </div>
             </div>
           </div>
 
-          <!-- Fin del bloque que se puede duplicar -->
+          <div class="col-sm-6 col-12">
+            <div class="card">
+              <video class="card-img-top" autoplay loop muted>
+                  <source src="{{ url_for ('static', filename ='src/clips/duel.mp4')}}" type="video/mp4" />
+                  Tu navegador no soporta el elemento de video.
+                </video>
+              <div class="card-body">
+                <h5 class="card-title"style="color: white;">¿Buscar o evitar duelos?</h5>
+                <p class="card-text">
+                  Te enseñaremos cuando debes tener duelos y cuando hay que evitarlos
+                </p>
+                <a href="#" class="btn btn-primary">Más detalles</a>
+              </div>
+            </div>
+          </div>
 
-          <!-- Agrega más bloques duplicando el código anterior según sea necesario -->
-        </section>
-      </div>
-    </main>
+          <div class="mt-4 col-sm-6 col-12">
+            <div class="card">
+              <video class="card-img-top" autoplay loop muted>
+                <source src="{{ url_for ('static', filename ='src/clips/peek.mp4')}}" type="video/mp4" />
+                Tu navegador no soporta el elemento de video.
+              </video>
+              <div class="card-body">
+                <h5 class="card-title"style="color: white;">Peeking y limpiar angulos</h5>
+                <p class="card-text">
+                  Aprende a limpiar ángulos y como funciona el peek 
+                </p>
+                <a href="#" class="btn btn-primary">Más detalles</a>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4 col-sm-6 col-12">
+            <div class="card">
+              <img src="{{ url_for ('static', filename ='src/personajes/cypher/cypher.jpg')}}"
+                class="card-img-top" alt="Curso 1" />
+              <div class="card-body">
+                <h5 class="card-title"style="color: white;">Comienza a desarrollar tu GameSense</h5>
+                <p class="card-text">
+                  Desarrolla tu sexto sentido para tomar mejores decisiones.
+                </p>
+                <a href="#" class="btn btn-primary">Más detalles</a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <footer>
-      <!-- Footer -->
-      <p>
-        © 2024 Radiant Vision by Automata Software ® Todos los derechos
-        reservados.
-      </p>
-    </footer>
+        
+
+        <!-- Agrega más bloques duplicando el código anterior según sea necesario -->
+      </section>
+
+<!-------------Oro------------------------------------------->
+      <section class="container mt-4" id="gold" style="display: none;">
+        <div class="mt-4">
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6 col-12">
+            <div class="card">
+              <video class="card-img-top" autoplay loop muted>
+                  <source src="{{ url_for ('static', filename ='src/clips/aislar.mp4')}}" type="video/mp4" />
+                  Tu navegador no soporta el elemento de video.
+                </video>
+              <div class="card-body">
+                <h5 class="card-title"style="color: white;">Aisla duelos</h5>
+                <p class="card-text">
+                  Aprende a aislar duelos para ganar 1 v 1
+                </p>
+                <a href="#" class="btn btn-primary">Más detalles</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-12">
+            <div class="card">
+              <video class="card-img-top" autoplay loop muted>
+                <source
+                  src="{{ url_for ('static', filename ='src/LNY_Sage-Wallpapers/LNY_Sage-Wallpapers/Animated/LNY_Sage-5_CallBack.mp4')}}"
+                  type="video/mp4" />
+                Tu navegador no soporta el elemento de video.
+              </video>
+              <div class="card-body">
+                <h5 class="card-title"style="color: white;">Comienza a comunicarte</h5>
+                <p class="card-text">
+                  Conoce todo sobre las calls y como darlas 
+                </p>
+                <a href="#" class="btn btn-primary">Más detalles</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 col-sm-6 col-12">
+            <div class="card">
+              <img
+                  src="{{ url_for ('static', filename ='src/personajes/agents2.jpg')}}"
+                  />
+              <div class="card-body">
+                <h5 class="card-title"style="color: white;">Importancia de los roles principales</h5>
+                <p class="card-text">
+                  Es momento de ecoger un rol con el cual sea tu estilo.
+                </p>
+                <a href="#" class="btn btn-primary">Más detalles</a>
+              </div>
+            </div>
+          </div>
+          <div class="mt-4 col-sm-6 col-12">
+            <div class="card">
+              <img
+                  src="{{ url_for ('static', filename ='src/personajes/brim/brim.jpg')}}"
+                  />
+              <div class="card-body">
+                <h5 class="card-title"style="color: white;">Crea estrategias</h5>
+                <p class="card-text">
+                  Es importante tener una estrategia de juego al iniciar cada ronda
+                </p>
+                <a href="#" class="btn btn-primary">Más detalles</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+
+        <!-- Agrega más bloques duplicando el código anterior según sea necesario -->
+      </section>
+      
+
+    </div>
+  </main>
+
+  <footer>
+    <!-- Footer -->
+    <p>
+      © 2024 Radiant Vision by Automata Software ® Todos los derechos
+      reservados.
+    </p>
+  </footer>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+
+  <script>
+
+    function showPred(predString) {
+      const rank = document.getElementById('nivel');
+      var rankName = predString.match(/[a-zA-Z\s]+/)[0].trim();
+      // Cambiar el estilo a 'block'
+      rank.style.display = 'block';
+
+       switch (rankName) {
+        case 'Iron':
+            rank.style.color = '#434b4d';  // Color oscuro para representar hierro
+            break;
+        case 'Bronze':
+            rank.style.color = '#cd7f32';  // Color bronce
+            break;
+        case 'Silver':
+            rank.style.color = 'silver';  // Color plata
+            break;
+        case 'Gold':
+            rank.style.color = 'gold';  // Color oro
+            break;
+        default:
+            rank.style.color = 'black';
+    }
+
+      rank.style.color = 'white';
+        
+      // Actualizar el mensaje de bienvenida
+      rank.innerText = `Nivel de habilidad: ${predString}`;
+    }
+
+    function showCourses(predString) {
+      var rankName = predString.match(/[a-zA-Z\s]+/)[0].trim();
+
+      switch (rankName) {
+        case 'Iron':
+            const ir = document.getElementById('iron');
+            ir.style.display = 'block';
+            break;
+        case 'Bronze':
+            const bron = document.getElementById('bronze');
+            bron.style.display = 'block';
+        case 'Silver':
+            const silv = document.getElementById('silver');
+            silv.style.display = 'block';
+            break;
+        case 'Gold':
+            const gol = document.getElementById('gold');
+            gol.style.display = 'block';
+            break;
+        default:
+            rank.style.color = 'black';
+    }
+    }
+      
     
-    <script>
-        // Verificar si prediction está definida antes de serializarla a JSON
-        {% if prediction is defined %}
-            // Obtener la predicción del contexto
-            var predictionObject = {{ prediction | tojson }};
+
+
+    // Verificar si prediction está definida antes de serializarla a JSON
+    {% if prediction is defined %}
+
+    // Obtener la predicción del contexto
+    var predictionObject = {{ prediction | tojson }};
+
+    // Obtener el array de predicciones
+    var predictionArray = predictionObject.prediction;
+
+    var predString = JSON.stringify(predictionArray[0]);
+    // Imprimir la predicción en la consola
+    console.log("Predicción:", predString);
+
+    showPred(predString);
+    showCourses(predString);
+
     
-            // Obtener el array de predicciones
-            var predictionArray = predictionObject.prediction;
-    
-            // Imprimir la predicción en la consola
-            console.log("Predicción:", predictionArray);
 
-            // Convertir el array a una cadena de texto JSON
-            var script = document.createElement('script');
-            script.src = '/static/js/prediction.js';
-            script.setAttribute('prediction', JSON.stringify(predictionArray));
-            document.head.appendChild(script);
+    {% else %}
+    var predictionArray
+    console.log("No hay predicción disponible.");
+    {% endif %}
 
-        {% else %}
-            console.log("No hay predicción disponible.");
-        {% endif %}
-    </script>
+  </script>
 
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/toastify-js"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+
+</body>
+
 </html>
