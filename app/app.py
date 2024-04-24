@@ -34,7 +34,7 @@ def perfil():
         
         options = webdriver.FirefoxOptions()
         ##options.add_argument('--ignore-certificate-errors')  # Opcional: para ignorar errores de certificado SSL si es necesario
-
+        options.add_argument('--headless')  # Abrir el navegador en modo oculto
         # Configurar el tiempo de espera máximo antes de que se genere un error de timeout
         timeout = 60  # Tiempo en segundos
         options.add_argument('--disable-dev-shm-usage')  # Deshabilitar el uso de la memoria compartida
@@ -118,7 +118,7 @@ def perfil():
         
         
         #lectura del modelo
-        model_path='C:/Users/vinke/OneDrive/Documentos/DesarrolloWeb/Radiant-Vision/app/model_jb.joblib'
+        model_path='C:/Users/Joseph/Documents/GitHub/RadiantVision-Firebase/app/model_jb.joblib'
         clf=joblib.load(model_path)
 
        # Realizar la predicción
