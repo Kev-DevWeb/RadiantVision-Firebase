@@ -26,6 +26,10 @@ def login():
 def vinculacion():
     return render_template('vinculation.html')
 
+@app.route('/cursos')
+def vinculacion():
+    return render_template('cursos.html')
+
 @app.route('/perfil', methods=['GET', 'POST'])
 def perfil():
     if request.method == 'POST':
