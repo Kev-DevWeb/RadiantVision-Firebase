@@ -2,7 +2,9 @@
 body {
     font-family: Arial, sans-serif;
 }
-
+.navbar{
+  position: relative !important;
+}
 #particles-js {
     position: fixed;
     top: 0;

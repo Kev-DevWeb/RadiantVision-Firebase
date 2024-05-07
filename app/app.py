@@ -18,6 +18,10 @@ def index():
     navbar_url = url_for('login')
     return render_template('index.html')
 
+@app.route('/cursos')
+def courses():
+    return render_template('cursos.html')
+
 @app.route('/login')
 def login():
     return render_template('login.html')
@@ -25,10 +29,6 @@ def login():
 @app.route('/vinculacion')
 def vinculacion():
     return render_template('vinculation.html')
-
-@app.route('/cursos')
-def vinculacion():
-    return render_template('cursos.html')
 
 @app.route('/perfil', methods=['GET', 'POST'])
 def perfil():
