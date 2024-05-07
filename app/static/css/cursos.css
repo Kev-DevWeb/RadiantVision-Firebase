@@ -1,0 +1,357 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Asegura que esté detrás del contenido */
+}
+
+/* Estilos para las secciones de niveles */
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    font-weight: bold;
+    text-align: center;
+}
+
+.card-text {
+    text-align: center;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 1rem;
+    border-radius: 10px;
+    box-shadow: 8px 10px 8px rgba(0, 0, 0, 0.5);
+}
+
+.card .btn {
+    display: block;
+    margin: 0 auto;
+}
+
+.btn-curso {
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-curso:hover {
+    background-color: #ec1729 !important;
+    border-color: #000000 !important;
+}
+
+.navbar-brand {
+    font-family: "Instrument Sans", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: white ;
+  }
+  
+  .navbar-brand:hover {
+    color: #f5dc1f;
+  }
+  
+  .navbar-nav .nav-link {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 18px; /* Ajusta este valor según lo que necesites */
+  }
+  
+  .navbar-nav .nav-link:hover {
+    box-shadow: 0 0 5px #ec1729; /* Define el sombreado al pasar el mouse */
+    border-radius: 10px;
+    background-color: #ec1729; /* Cambia el color de fondo al pasar el mouse */
+    color: black; /* Cambia el color del texto al pasar el mouse */
+  }
+  
+  .navbar .btn-outline-light {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 18px; /* Ajusta este valor según lo que necesites */
+  }
+  
+  .navbar .btn-outline-light:hover {
+    background-color: #ec1729; /* Cambia el color de fondo del botón al pasar el mouse */
+    border-color: #ec1729; /* Cambia el color del borde del botón al pasar el mouse */
+  }
+  
+  /* Cambiar fondo de header a vino */
+  header {
+    /* Tono vino oscuro */
+    margin-top: 75px;
+  }
+  
+  header .display-4 {
+    font-family: "Instrument Sans", sans-serif;
+    font-weight: 600;
+    /* Puedes ajustar el grosor aquí */
+  }
+  
+  header .lead {
+    font-size: 24px;
+    font-weight: 400;
+    /* Puedes ajustar el grosor aquí */
+  }
+  
+  .container.mt-4 h2 {
+    text-align: center;
+    font-weight: 600;
+    margin-top: 0px;
+    padding-bottom: 40px;
+  }
+  
+  /* Cambiar fondo de la sección de cursos a vino */
+  .container.mt-4 {
+    border-color: #000000;
+    /* Tono vino oscuro */
+    color: #ec1729;
+    /* Texto blanco */
+    padding: 20px;
+  }
+  
+  /* Cambiar el color del botón de los cursos a vino */
+  .btn-primary {
+    background-color: #000000;
+    /* Tono vino oscuro */
+    border-color: #ffffff;
+    /* Borde vino oscuro */
+  }
+  
+  @media (min-width: 768px) {
+    .container.mt-4 {
+      margin-left: 30px;
+      margin-right: 30px;
+    }
+  }
+  
+  /* Estilos personalizados para el carrusel */
+  #carruselCursos .carousel-inner {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  
+  #carruselCursos .carousel-item {
+    width: 100%;
+    /* Ajusta según sea necesario */
+    transition: transform 0.6s ease;
+  }
+  
+  #carruselCursos .col-md-4 {
+    flex: 0 0 auto;
+    margin-right: 2px;
+    /* Ajusta según sea necesario */
+  }
+  #carruselCursos .card {
+    margin: 0 5px; /* Ajusta según sea necesario */
+  }
+  
+  /* Estilos para los botones del carrusel */
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 50px;
+    /* Tamaño del cuadro de botón */
+    height: 50px;
+    background-color: transparent;
+    /* Fondo transparente */
+    border: none;
+    /* Sin borde */
+    border-radius: 5px;
+    /* Bordes redondeados */
+    font-size: 24px;
+    /* Tamaño del ícono */
+    color: gray;
+    /* Color de los botones */
+    margin-top: 150px;
+    /* Ajusta según sea necesario para bajar los botones */
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: gray;
+    /* Color de fondo de los íconos */
+    border-radius: 5px;
+    /* Bordes redondeados de los íconos */
+    padding: 10px;
+    /* Relleno de los íconos */
+  }
+  
+  /* Cambiar color al pasar el ratón sobre los botones */
+  .carousel-control-prev:hover,
+  .carousel-control-next:hover {
+    background-color: #ddd;
+  
+    /* Cambiar el color al pasar el ratón */
+  }
+  
+  /* Estilos personalizados para el header con video de fondo */
+  header {
+    position: relative;
+    height: 60vh; /* Ajusta la altura del header según sea necesario */
+    min-height: 400px; /* Establece una altura mínima para evitar que el header sea demasiado pequeño */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+  }
+  
+  #videoFondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(10px); /* Ajusta el valor de blur según sea necesario */
+  }
+  
+  #textoSobreVideo {
+    z-index: 1;
+  }
+  
+  #experimentados {
+    padding-top: 32px;
+    padding-bottom: 4px;
+    background-color: #161a1d;
+  }
+  
+  #profesionales {
+    padding-top: 32px;
+    padding-bottom: 4px;
+    background-color: #660708;
+  }
+  
+  /* Estilos para el footer */
+  footer {
+    background-color: black; /* Color de fondo del footer */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-top: 0;
+  }
+  
+  section {
+    margin-top: auto;
+    margin-bottom: 80px; /* Ajusta según sea necesario para dejar suficiente espacio */
+    max-width: 1200px; /* Ajusta según sea necesario */
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #3b0b0b;
+    padding: 10px;
+    border-radius: 20px;
+  }
+  .carrusel-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+  
+  .container.mt-4 {
+    background-color: #ec1729;
+    /* Tono vino oscuro */
+    color: #fff;
+    /* Texto blanco */
+    padding: 20px;
+    /* Ajustar el espacio interno según sea necesario */
+    border-radius: 10px;
+    /* Bordes redondeados */
+    max-width: 800px; /* Ajusta según sea necesario */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .card-img-top {
+    height: 200px; /* Ajusta según sea necesario */
+    object-fit: cover;
+  }
+  
+  #tracker {
+    width: 75%;
+  }
+  
+  button.btn-primary {
+    margin-left: 10px;
+    background-color: black;
+    border: none;
+    color: white;
+    transition: background-color 1s ease;
+  }
+  
+  button.btn-primary:hover {
+    background-color: red;
+  }
+  
+  .container form{
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+  }
+  
+  .container input{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: grey;
+    border: none;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+    transition: background-color 1s ease;
+  }
+  .container input:hover{
+    background-color: #ec1729 ;
+  }
+  
+  /* Estilos para los botones del carrusel */
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 40px; /* Reducir el ancho del botón */
+    height: 40px; /* Reducir la altura del botón */
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px; /* Reducir el tamaño de la fuente del icono */
+    color: gray;
+    margin-top: 150px;
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: gray;
+    border-radius: 5px;
+    padding: 8px; /* Reducir el relleno del icono */
+  }
+  
+  /* Cambiar color al pasar el ratón sobre los botones */
+  .carousel-control-prev:hover,
+  .carousel-control-next:hover {
+    background-color: #ddd;
+  }
+  
+  #formulario{
+    margin-left: 20px;
+  }
