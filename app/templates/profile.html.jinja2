@@ -16,12 +16,15 @@
 </head>
 
 <body data-navbar-url="{{ url_for('static', filename='html/nav.html') }}">
+
+<div id="navbar-container"></div>
+
   <form id="predictionForm" action="/perfil" method="post" style="display: none">
     <input type="hidden" id="linkBeforeInput" name="linkBeforeInput" value="" />
   </form>
 
   <header>
-    <div id="navbar-container"></div>
+    
     <!-- Header -->
     <section id="perfil">
       <div id="perfil-header">

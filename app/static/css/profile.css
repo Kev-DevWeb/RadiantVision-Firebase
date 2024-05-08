@@ -383,3 +383,35 @@ h4{
 .card-title{
     color: #ccc;
 }
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 576px) {
+    /* Reduce el tamaño de fuente de los botones */
+    .btnProfile {
+      font-size: 10px;
+    }
+    
+
+    label[for="nombre"] {
+        font-size: 10px;
+      }
+
+      input[type="text"][name="nombre"]::placeholder {
+        font-size: 10px;
+      }
+
+
+    /* Ajusta el tamaño de las fuentes de los títulos */
+    h2.recomendar {
+      font-size: 15px;
+    }
+  
+    /* Ajusta el tamaño de las fuentes de los subtítulos */
+    h5.card-title {
+      font-size: 10px;
+    }
+  }
+
+  .navbar{
+    position: relative !important;
+  }

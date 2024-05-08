@@ -254,3 +254,26 @@ body{
 .bg-dark{
     border-radius: 2px;
 }
+
+/* Agrega este CSS al final de tu archivo login_style.css */
+
+/* Estilos generales */
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 576px) {
+    /* Reduce el tamaño de fuente de los botones */
+    .container button {
+      font-size: 8px;
+    }
+  
+    /* Ajusta el tamaño de las fuentes de los títulos */
+    .container h1 {
+      font-size: 15px;
+    }
+  
+    /* Ajusta el tamaño de las fuentes de los subtítulos */
+    .container span {
+      font-size: 8px;
+    }
+  }
+  
