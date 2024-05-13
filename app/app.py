@@ -22,6 +22,10 @@ def index():
 def courses():
     return render_template('cursos.html')
 
+@app.route('/noticias')
+def noticias():
+    return render_template('newsletter.html')
+
 @app.route('/login')
 def login():
     return render_template('login.html')
@@ -122,7 +126,7 @@ def perfil():
         
         
         #lectura del modelo
-        model_path='C:/Users/Chayanne/Documents/GitHub/RadiantVision-Firebase/app/model_jb.joblib'
+        model_path='C:/Users/Joseph/Documents/GitHub/RadiantVision-Firebase/app/model_jb.joblib'
         clf=joblib.load(model_path)
 
        # Realizar la predicción
